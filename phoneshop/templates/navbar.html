@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <li><a href = "{% url 'phoneshop:allProdCat' %}">All Products</a></li>
-        { % for cat in links %}
+        {% for cat in links %}
             <a href = "{{cat.get_absolute_url}}"> {{cat.name}} </a>
             <br>
         {% endfor %}
