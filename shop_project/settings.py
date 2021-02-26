@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'phoneshop'
+    'phoneshop',
+    'search_app',
     
 ]
 
@@ -57,7 +58,8 @@ ROOT_URLCONF = 'shop_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        'DIRS': [str(BASE_DIR.joinpath('phoneshop''templates')),
+                 str(BASE_DIR.joinpath('search_app','templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
