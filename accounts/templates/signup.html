@@ -20,25 +20,25 @@
 					<form method="post">
 						<p>{{ form | crispy }}</p>
 						{% csrf_token %}
-						<button type="submit" class="btn btn-secondary">Register Account</button>
+						<button type="submit" class="btn btn-primary text-light">Register Account</button>
 					</form>
 					<br>
 				</div>
 			</div>
 		{% else %}
-			<div class="mx-auto">
-				<br>
-				<h1 class="my_title text-center">Your account has been successfully created</h1>
-				<br>
-				<div>
+			<div class = "alert alert-warning">
+				<strong>Success, you have created your account !</strong>
+			</div>
+			<div class="mx-auto">				
+				<div class = "jumbotron bg-primary">
 					<p>
 						Dear Customer,
 						<br>
 						<br>
-						Your account has been created and it is ready to use.
+						Your account has been created and it is ready to use
 						<br>
-                        <a href="{% url 'phoneshop:allProdCat' %}">Continue shopping</a> and enjoy the 
-                        variety of cushions that we have at the perfect cushion store.
+                        <a href="{% url 'phoneshop:allProdCat' %}">Continue shopping</a>
+						and enjoy our vast range of cutting-edge, modern technologies.
 					</p>
 				</div>
 			</div>
