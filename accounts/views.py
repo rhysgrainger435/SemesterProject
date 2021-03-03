@@ -30,9 +30,9 @@ def signinView(request):
                 return redirect('phoneshop:allProdCat')
             else:
                 return redirect('signup')
-        else:
-            form = AuthenticationForm()
-        return render(request, 'signin.html', {'form': form})
+    else:
+        form = AuthenticationForm()
+    return render(request, 'signin.html', {'form': form})
 
 def signoutView(request):
     logout(request)
