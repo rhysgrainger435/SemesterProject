@@ -19,13 +19,14 @@
                             src="{{product.image.url}}" alt="{{product.name}}"></a>
 						<div class="card-body">
 							<h4>{{product.name}}</h4>
-							<p>{€{product.price}}</p>
+							<p>€{{product.price}}</p>
 						</div>
 					</div>
 				</div>
 				{% empty %}
-				<div class="row mx-auto">
-					<p class="text-center my_search_text">0 results found.</p>
+				<div class="alert alert-danger alert-center">
+					<h4 class="alert-heading">0 Results Found</h4>
+					<p>Try searching for another one of our amazing products.</p>
 				</div>
 			{% endfor %}
 		</div>
