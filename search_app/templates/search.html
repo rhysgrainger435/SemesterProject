@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-	We have a variety of stunning and comfy cushions. Look for the one that suits your needs.
+	We have a variety of Phones, Phone cases, Tablets and Screen protectors why not search for something you would like.
 {% endblock %}
 {% block title %}
-	Search - Perfect Cushion Store
+	Search - The Fantastic Shop n Drop
 {% endblock %}
 {% block content %}
 	<div>
-		<p class="text-center my_search_text">You have searched for: <b>"{{ query }}"</b></p>
+		<p class="text-center my_search_text">This is what you have searched for: <b>"{{ query }}"</b></p>
 	</div>
 	<div class="container">
 		<div class="row mx-auto">
@@ -25,8 +25,8 @@
 				</div>
 				{% empty %}
 				<div class="alert alert-danger alert-center">
-					<h4 class="alert-heading">0 Results Found</h4>
-					<p>Try searching for another one of our amazing products.</p>
+					<h4 class="alert-heading">No Results Found.</h4>
+					<p>Please try searching again we hope you find exactly what you're looking for.</p>
 				</div>
 			{% endfor %}
 		</div>
