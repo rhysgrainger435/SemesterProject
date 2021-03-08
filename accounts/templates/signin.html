@@ -10,19 +10,19 @@
 {% block content %}
 	<div class="container">
 		<br>
-		<h1 class="my_title text-center">Login or Create a New Account</h1>
+		<h1 class="my_title text-center"> Please Login or Create a New Account</h1>
 		<br>
 		<div class="row">
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center my_custom_div">
 				<br>
-				<h2 class="my_title">New Customer?</h2>
+				<h2 class="my_title"> Are You A New Customer?</h2>
 				<br>
-				<a href="{% url 'signup' %}" class="btn btn-primary">Create New Account</a>
+				<a href="{% url 'signup' %}" class="btn btn-primary">Why Not Create New Account</a>
 			</div>
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 bg-light">
 				<div>
 					<br>
-					<h2 class="my_title">Registered Customers Only</h2>
+					<h2 class="my_title">Sorry For Registered Customers Only</h2>
 					<form method="post">
 						{% csrf_token %}
 						<p>{{ form | crispy }}</p>
