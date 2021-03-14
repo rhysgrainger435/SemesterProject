@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'phoneshop',
     'search_app',
+    'cart',
     'crispy_forms',   
 ]
 
@@ -60,6 +61,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [str(BASE_DIR.joinpath('phoneshop''templates')),
                  str(BASE_DIR.joinpath('search_app','templates')),
+                 str(BASE_DIR.joinpath('cart', 'templates')),
                  str(BASE_DIR.joinpath('accounts', 'templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
