@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 {% block metadescription %}
-	This is the shopping cart page. Proceed to review your items and place the order.
+	Welcome to your cart. Please review your cart before you place your order Thank You for shopping with us!
 {% endblock %}
 {% block title %}
-	Cart - Perfect Cushion Store
+	Cart - FantasticShopNDrop
 {% endblock %}
 {% block content %}
 	{% if not cart_items %}
@@ -99,6 +99,22 @@
 					</tbody>
 				</table>
 				<div class="mx-auto">
+					<form action="" method="POST">
+						{% csrf_token %}
+							<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+						 data-key="{{ data_key }}"
+								 data-amount="{{ stripe_total }}"
+								 data-name="The Fantastic Electronic ShopNDrop"
+								 data-description="{{ description }}"
+								 data-image="{% static 'images/logo.png' %}"
+								 data-locale="auto"
+								 data-currency="eur"
+								 data-shipping-address="true"
+								 data-billing-address="true"
+								 data-zip-code="true">
+							 </script>
+						</form>
+						
 					<a href="{% url 'phoneshop:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue Shopping</a>
 				</div>
 			</div>
