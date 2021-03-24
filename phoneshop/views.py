@@ -3,11 +3,11 @@ from .models import Category,Product
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 
-def allProdCat(request, category_id=None):
+def allProdCat(request, c_slug=None):
     c_page = None
     products_list= None
-    if category_id != None:
-        c_page = get_object_or_404(Category, id=category_id)
+    if c_slug != None:
+        c_page = get_object_or_404(Category, slug = c_slug)
         products_list = Product.objects.filter(category=c_page, available=True)
     else:
         products_list = Product.objects.all().filter(available=True)
@@ -24,9 +24,9 @@ def allProdCat(request, category_id=None):
         products = paginator.page(paginator.num_pages)
     return render(request,'shop/category.html',{'category':c_page, 'products':products})
 
-def prod_detail(request,category_id,product_id):
+def prod_detail(request, c_slug, p_slug):
     try:
-        product = Product.objects.get(category_id=category_id,id=product_id)
+        product = Product.objects.get(category__slug=c_slug, slug=p_slug)
     except Exception as e:
         raise e 
     return render(request,'shop/product.html', {'product':product})

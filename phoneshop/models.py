@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 
 class Category(models.Model):
     id = models.UUIDField(
@@ -10,15 +11,20 @@ class Category(models.Model):
     name = models.CharField(max_length=250, unique=True)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='category', blank=True)
+    slug = models.SlugField(null=True, unique=True)
     
 
     class Meta:
         ordering = ('name',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Category, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('phoneshop:products_by_category', args=[self.id])
+        return reverse('phoneshop:products_by_category', args=[self.slug])
 
     def __str__(self):
         return self.name    
@@ -38,14 +44,19 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    slug = models.SlugField(null=True, unique=True)
 
     class Meta:
         ordering = ('name',)
         verbose_name = 'product'
         verbose_name_plural = 'products'
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Product, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('phoneshop:prod_detail', args=[self.category.id, self.id])
+        return reverse('phoneshop:prod_detail', args=[str(self.category.slug), str(self.slug)])
 
     def __str__(self):
         return self.name

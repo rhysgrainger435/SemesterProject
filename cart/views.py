@@ -137,7 +137,7 @@ def cart_detail(request, total=0, counter=0, cart_items = None):
                     order_item.delete()
                     '''Print when order saved'''
                     print('The order has been created')
-                return redirect('phoneshop:allProdCat')
+                return redirect('order:thanks', order_details.id)
             except ObjectDoesNotExist:
                 pass
         
