@@ -16,7 +16,7 @@
             </div>
           </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">Your Basket</a>
+          <a class="nav-link text-light" href="{% url 'cart:cart_detail' %}">Your Basket</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" action ="{% url 'search_app:searchResult'%}" method="get">
