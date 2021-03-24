@@ -13,6 +13,16 @@
 </head>
 <body>
 	<div class="container">
+		{% load django_bootstrap_breadcrumbs %}
+
+		{% block breadcrumbs %}	
+    	{% clear_breadcrumbs %}
+    	{% breadcrumb "Home" "/" %}
+		{% endblock %}
+
+		{% block contents %}
+    		{% render_breadcrumbs %}
+		{% endblock %}
 		<div class = "container-fluid bg-primary navbar-fixed-top my_top_navbar_div">
 			{% include 'top-navbar.html' %}
 		</div>

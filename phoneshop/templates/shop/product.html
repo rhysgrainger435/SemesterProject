@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+	{{block.super}}
+	{% breadcrumb "Product" "product.views.index" %}
+{% endblock %}
 {% load static %}
 {% block metadescription %}
 	{{ product.description|truncatewords:155 }}

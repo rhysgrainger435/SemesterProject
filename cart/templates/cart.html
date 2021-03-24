@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+	{{block.super}}
+	{% breadcrumb "Cart" "cart.views.index" %}
+{% endblock %}
 {% load static %}
 {% block metadescription %}
 	Welcome to your cart. Please review your cart before you place your order Thank You for shopping with us!

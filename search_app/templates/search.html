@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load django_bootstrap_breadcrumbs %}
+{% block breadcrumbs %}
+	{{block.super}}
+	{% breadcrumb "Search" "search.views.index" %}
+{% endblock %}
 {% load static %}
 {% block metadescription %}
 	We have a variety of Phones, Phone cases, Tablets and Screen protectors why not search for something you would like.

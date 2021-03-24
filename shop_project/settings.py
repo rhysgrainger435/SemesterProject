@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'stripe',
     'order',
     'vouchers',
+    'django_bootstrap_breadcrumbs',
 ]
 
 MIDDLEWARE = [
