@@ -2,6 +2,8 @@ import uuid
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 class Category(models.Model):
     id = models.UUIDField(
@@ -35,6 +37,10 @@ class Product(models.Model):
         default=uuid.uuid4,
         editable=False)
 
+    image_thumbnail = ImageSpecField(source='image',
+                                processors=[ResizeToFill(90, 90)],
+                                format='JPEG',
+                                options={'quality': 60})
     name = models.CharField(max_length=250, unique=True)
     description = models.TextField(blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -44,7 +50,8 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated = models.DateTimeField(auto_now_add=True, blank=True, null=True)
-    slug = models.SlugField(null=True, unique=True)
+    slug = models.SlugField(null=True, unique=True)#
+    
 
     class Meta:
         ordering = ('name',)
