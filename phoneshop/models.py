@@ -38,7 +38,7 @@ class Product(models.Model):
         editable=False)
 
     image_thumbnail = ImageSpecField(source='image',
-                                processors=[ResizeToFill(90, 90)],
+                                processors=[ResizeToFill(180, 180)],
                                 format='JPEG',
                                 options={'quality': 60})
     name = models.CharField(max_length=250, unique=True)
