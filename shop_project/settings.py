@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'vouchers',
     'django_bootstrap_breadcrumbs',
     'imagekit',
+    'contactus',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +69,8 @@ TEMPLATES = [
                  str(BASE_DIR.joinpath('search_app','templates')),
                  str(BASE_DIR.joinpath('cart', 'templates')),
                  str(BASE_DIR.joinpath('accounts', 'templates')),
-                 str(BASE_DIR.joinpath('order','templates'))],
+                 str(BASE_DIR.joinpath('order','templates')),
+                 str(BASE_DIR.joinpath('contactus','templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -147,5 +149,7 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 
 STRIPE_SECRET_KEY = 'sk_test_51IV36PCyPAe3WOJbuJS4BKxLg2OcRwUUkaKLgs61kgUqpHEXzIxbMuFmdddJlBRrSvPRRVwRdc9iQo2XWp8di5ca00sJNVT5FK'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51IV36PCyPAe3WOJbFsp9AyP4FNaUOwONom8m7yinZkXvirs392NecgIdz052RWRNGdXB02PTyegENlKdT5Jwqdot004jnnPjAC'
+
+DEFAULT_FROM_EMAIL = 'x00165419@mytudublin.ie'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
