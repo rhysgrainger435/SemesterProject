@@ -37,6 +37,15 @@
 							<a class="btn btn-secondary" href="{% url 'wishlist:add_wish' product.id %}">Add to WishList</a>
 						{% endif %}
 					</div>
+					<div class="card-footer">
+						{% for comment in product.comments.all %}
+						  <p>
+							<span class="font-weight-bold">{{ comment.author }} &middot;</span>
+							{{ comment }}
+						  </p>
+						{% endfor %}
+					  </div>
+				
 				</div>
 			</div>
 		</div>

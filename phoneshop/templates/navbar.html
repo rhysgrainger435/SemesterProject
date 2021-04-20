@@ -18,17 +18,14 @@
         <li class="nav-item">
           <a class="nav-link text-light" href="{% url 'cart:cart_detail' %}">Your Basket</a>
         </li>
-<<<<<<< HEAD
         {% if item_count > 0 %}
         <li class="nav-item">
           <a class="nav-link text-light" href="{% url 'wishlist:wishlist_detail' %}"> Your WishList ({{item_count}})</a>
         </li>
         {% endif %}
-=======
         <li class="nav-item">
           <a class = "nav-link text-light" href="{% url 'contactus:contact' %}">Contact Us</a>
         </li>
->>>>>>> 90c8429ac2a620fa91fbbe48be347c04868d637f
       </ul>
       <form class="form-inline my-2 my-lg-0" action ="{% url 'search_app:searchResult'%}" method="get">
         {% csrf_token %}

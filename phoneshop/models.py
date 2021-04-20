@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+from django.contrib.auth import get_user_model
 
 class Category(models.Model):
     id = models.UUIDField(
@@ -67,6 +68,27 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class Comment(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='comments',
+    )
+    comment = models.CharField(max_length=140)
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.comment
+    
+    def get_absolute_url(self):
+        return reverse('product_list')
+
+    
+
 
 
 
