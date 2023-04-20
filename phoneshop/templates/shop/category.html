@@ -2,7 +2,11 @@
 {% load django_bootstrap_breadcrumbs %}
 {% block breadcrumbs %}
 	{{block.super}}
-	{% breadcrumb "Categories" "category.views.index" %}
+	{% if category %}
+		{% breadcrumb "Categories" "category.views.index" %}
+	{% else %}
+		{% breadcrumb "All Products" "category.views.index" %}
+	{% endif %}
 {% endblock %}
 {% load static %}
 {% block metadescription %}

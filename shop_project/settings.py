@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '07(u6!2+829-^ki@jm9+%f9++ha7+qi32jn%2-m^s&b*k(=67&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['up.railway.app']
 
 
 # Application definition
